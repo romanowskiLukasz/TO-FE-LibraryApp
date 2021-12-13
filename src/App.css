@@ -8,3 +8,8 @@
 body {
   background-color: #f2e6dc;
 }
+
+p {
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+}

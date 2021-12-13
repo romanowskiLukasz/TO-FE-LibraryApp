@@ -1,1 +1,21 @@
+.home_page_container {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
 
+.home_page_books_container {
+  width: 60%;
+  margin-left: 40px;
+}
+
+@media only screen and (max-width: 960px) {
+  .home_page_info_container {
+    display: none;
+  }
+  .home_page_books_container {
+    width: 100%;
+    margin-left: 40px;
+  }
+}

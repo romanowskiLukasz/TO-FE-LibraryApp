@@ -5,6 +5,10 @@ import { StoreProvider, createStore } from "easy-peasy";
 import model from "./easy-peasy/model";
 import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./Pages/HomePage/HomePage";
+import Footer from "./components/Footer/Footer";
+import LoginPage from "./Pages/LoginPage/LoginPage";
+import RegisterPage from "./Pages/RegisterPage/RegisterPage";
+import ContactPage from "./Pages/ContactPage/ContactPage";
 
 const store = createStore(model);
 
@@ -16,15 +20,11 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<HomePage />} />
-            {/* <Route path="/" exact component={Home} />
-              <Route path="/repertoire" exact component={Repertoire} />
-              <Route path="/offers" exact component={Offers} />
-              <Route path="/sign-up" exact component={SignUp} />
-              <Route path="/registration" exact component={Registration} />
-              <Route path="/profile" exact component={Profile} />
-              <Route path="/buy-ticket" exact component={BuyTicketPage} />
-              <Route path="/film/:filmId" children={<FilmPage />} /> */}
+            <Route path="/sign-up" element={<LoginPage />} />
+            <Route path="/registration" element={<RegisterPage />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
+          <Footer />
         </Router>
       </StoreProvider>
     </>

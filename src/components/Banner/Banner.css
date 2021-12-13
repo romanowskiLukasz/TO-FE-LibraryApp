@@ -1,0 +1,13 @@
+.banner_container > img {
+  max-height: 20vh;
+}
+.banner_container {
+  background-color: #32362d;
+  margin-top: 3em;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+}
+.home_page_info_container {
+  align-items: center;
+}

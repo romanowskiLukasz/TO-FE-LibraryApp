@@ -4,10 +4,10 @@ import Button from "../Buttons/Button";
 import { useStoreState } from "easy-peasy";
 import "./Navbar.css";
 import { CgProfile } from "react-icons/cg";
-import { ImBooks } from "react-icons/im";
+import { GiBlackBook } from "react-icons/gi";
 
 const Navbar = () => {
-  const isLoggedIn = false; //useStoreState((state) => state.isLoggedIn);
+  const isLoggedIn = useStoreState((state) => state.isLoggedIn);
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -35,8 +35,13 @@ const Navbar = () => {
     <>
       <nav className="navbar">
         <div className="navbar-container">
-          <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-            PK Lib <ImBooks size={40} style={{ "margin-left": "10px" }} />
+          <Link
+            to="/"
+            className="navbar-logo"
+            style={{ "font-family": "'Galada', cursive" }}
+            onClick={closeMobileMenu}
+          >
+            PK Lib <GiBlackBook size={45} style={{ "margin-left": "5px" }} />
           </Link>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
@@ -54,7 +59,7 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               <Link
-                to="/offers"
+                to="/contact"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
