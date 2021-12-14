@@ -9,6 +9,7 @@ import Footer from "./components/Footer/Footer";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import RegisterPage from "./Pages/RegisterPage/RegisterPage";
 import ContactPage from "./Pages/ContactPage/ContactPage";
+import CatalogPage from "./Pages/CatalogPage/CatalogPage";
 
 const store = createStore(model);
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="/sign-up" element={<LoginPage />} />
             <Route path="/registration" element={<RegisterPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/books" element={<CatalogPage />} />
           </Routes>
           <Footer />
         </Router>
