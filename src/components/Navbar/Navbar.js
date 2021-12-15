@@ -47,6 +47,17 @@ const Navbar = () => {
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
+            {/* {isLoggedIn && (
+              <li className="nav-item">
+                <Link
+                  to="/form"
+                  className="nav-links"
+                  onClick={closeMobileMenu}
+                >
+                  Formularz
+                </Link>
+              </li>
+            )} */}
             <li className="nav-item">
               <Link to="/" className="nav-links" onClick={closeMobileMenu}>
                 Strona Główna
@@ -66,6 +77,7 @@ const Navbar = () => {
                 Kontakt
               </Link>
             </li>
+
             {isLoggedIn ? (
               <li className="nav-item">
                 <Link

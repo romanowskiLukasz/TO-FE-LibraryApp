@@ -10,6 +10,7 @@ import LoginPage from "./Pages/LoginPage/LoginPage";
 import RegisterPage from "./Pages/RegisterPage/RegisterPage";
 import ContactPage from "./Pages/ContactPage/ContactPage";
 import CatalogPage from "./Pages/CatalogPage/CatalogPage";
+import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 
 const store = createStore(model);
 
@@ -25,6 +26,7 @@ function App() {
             <Route path="/registration" element={<RegisterPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/books" element={<CatalogPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
           </Routes>
           <Footer />
         </Router>

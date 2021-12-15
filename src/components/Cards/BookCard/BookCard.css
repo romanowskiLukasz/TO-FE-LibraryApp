@@ -30,3 +30,12 @@
   width: 200px;
   max-height: 280px;
 }
+
+.book_card_title {
+  margin-top: 5px;
+}
+
+.book_card_name {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

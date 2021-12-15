@@ -34,15 +34,21 @@ function CatalogPage() {
           name="first"
           onChange={handleChange}
           type="text"
-          placeholder="first input"
+          placeholder="Wyszukaj autora lub tytuł"
         />
         <input
-          value={inputValues.email}
-          name="second"
-          onChange={handleChange}
-          type="text"
-          placeholder="second input"
+          list="browsers"
+          id="myBrowser"
+          name="myBrowser"
+          placeholder="Wybierz kategorie"
         />
+        <datalist id="browsers">
+          <option value="Akcja"> </option>
+          <option value="Dramat"></option>
+          <option value="Literatura Piękna"></option>
+          <option value="Fantastyka"></option>
+          <option value="Reportaż"></option>
+        </datalist>
       </div>
       <CatalogBooks books={allBooks} />
     </>
