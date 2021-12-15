@@ -1,10 +1,15 @@
-import React from 'react';
-import './Form.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import Divider from "../Divider/Divider";
+import "./Form.css";
 
 const FormSuccess = () => {
   return (
-    <div className='form-content-right'>
-      <h1 >Konto zostało utworzone!</h1>
+    <div className="register_success_container">
+      <Divider sectionTitle={"Konto zostało założone!"} />
+      <Link to="/">
+        <button className="form-input-btn">Wróć do strony głównej</button>
+      </Link>
     </div>
   );
 };

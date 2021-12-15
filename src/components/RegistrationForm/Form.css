@@ -125,3 +125,11 @@
 
   font-size: 1.5em;
 }
+
+.register_success_container {
+  display: grid;
+  width: 50%;
+  justify-content: center;
+  margin: auto;
+  margin-top: 20vh;
+}
