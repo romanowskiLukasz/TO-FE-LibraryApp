@@ -30,3 +30,10 @@
 .catalog_book_card_content > p {
   padding: 5px;
 }
+
+.link {
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  color: #483434;
+}

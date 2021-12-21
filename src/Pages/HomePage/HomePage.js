@@ -9,6 +9,7 @@ function HomePage() {
   const [allBooks, setAllBooks] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     axios.get("http://localhost:8080/books").then((resp) => {
       setAllBooks(resp.data);
     });

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import "../RegistrationForm/Form.css";
 import validateInfo from "./validateInfo";
 import useForm from "./useForm";
@@ -11,6 +11,10 @@ function LoginForm() {
   const navigate = useNavigate();
   const { handleChange, handleSubmit, values, errors, wrongPassword } =
     useForm(validateInfo);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const isLoggedIn = useStoreState((state) => state.isLoggedIn);
   return (

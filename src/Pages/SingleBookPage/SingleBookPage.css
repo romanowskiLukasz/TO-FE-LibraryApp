@@ -1,0 +1,27 @@
+.single_book_container {
+  display: flex;
+  width: 90%;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #483434;
+}
+
+.single_book_container > h2 {
+  font-family: "PT Serif", serif;
+  padding: 15px;
+}
+
+.single_book_info_container {
+  padding: 15px;
+}
+
+@media only screen and (max-width: 960px) {
+  .single_book_container {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 100%;
+  }
+}
