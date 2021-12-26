@@ -43,6 +43,8 @@ const useForm = (validateInfo) => {
   };
 
   const login = useStoreActions((actions) => actions.setIsLoggedIn);
+  const setMe = useStoreActions((actions) => actions.setMe);
+
   useEffect(() => {
     axios
       .post("http://localhost:8080/user/login", {
@@ -59,6 +61,9 @@ const useForm = (validateInfo) => {
           response.data == 0
         ) {
           login(values.email);
+          axios.get(`http://localhost:8080/me/${values.email}`).then((resp) => {
+            setMe(resp.data);
+          });
         } else if (
           response.data != 0 &&
           isSubmitting &&

@@ -12,32 +12,33 @@ function CatalogBookCard({ book }) {
   const [avgRating, setAvgRating] = React.useState(3);
 
   return (
-    <Link to={"/books/" + book_id} className="link">
-      <div className="catalog_book_card_container">
+    <div className="catalog_book_card_container">
+      <Link to={"/books/" + book_id} className="link">
         <img src={img} />
-        <div className="catalog_book_card_content">
+      </Link>
+      <div className="catalog_book_card_content">
+        <Link to={"/books/" + book_id} className="link">
           <Divider sectionTitle={title} />
           <p>Autor: {name}</p>
           <p>Wydawnictwo: {publishingHouse}</p>
 
           <p style={{ marginTop: "25px" }}>Średnia ocena:</p>
           <Rating value={avgRating} readOnly />
-
-          {isLoggedIn && (
-            <>
-              <p style={{ marginTop: "25px" }}>Twoja ocena:</p>
-              <Rating
-                name="simple-controlled"
-                value={rating}
-                onChange={(value, newValue) => {
-                  setRating(newValue);
-                }}
-              />
-            </>
-          )}
-        </div>
+        </Link>
+        {isLoggedIn && (
+          <>
+            <p style={{ marginTop: "25px" }}>Twoja ocena:</p>
+            <Rating
+              name="simple-controlled"
+              value={rating}
+              onChange={(value, newValue) => {
+                setRating(newValue);
+              }}
+            />
+          </>
+        )}
       </div>
-    </Link>
+    </div>
   );
 }
 

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -11,15 +11,15 @@ import "./ReservedBookTable.css";
 
 const columns = [
   { id: "title", label: "Tytuł", minWidth: 170 },
-  { id: "author", label: "Autor", minWidth: 100 },
+  { id: "name", label: "Autor", minWidth: 100 },
   {
-    id: "bookBorrowDate",
+    id: "reservation_date",
     label: "Data wpożyczenia",
     minWidth: 170,
     align: "right",
   },
   {
-    id: "bookReturnDate",
+    id: "return_date",
     label: "Data oddania",
     minWidth: 170,
     align: "right",
@@ -30,16 +30,14 @@ function createData(title, author, bookBorrowDate, bookReturnDate) {
   return { title, author, bookBorrowDate, bookReturnDate };
 }
 
-const rows = [
-  createData("Kubuś puchatek", "Walt Disney", "20-11-2021", "27-11-2021"),
-  createData("The Namesake", "Jhumpa Lahiri", "11-12-2021", "19-12-2021"),
-  createData("Life of Pi", "Yann Martel", "10-12-2021", "20-12-2021"),
-  createData("Water for Elephants", " Sara Gruen", "10-12-2021", "25-12-2021"),
-];
-
-export default function ReservedBookTable() {
+export default function ReservedBookTable({ books }) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rows, setRows] = useState(books);
+
+  useEffect(() => {
+    setRows(books);
+  }, [books]);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -53,7 +51,7 @@ export default function ReservedBookTable() {
   return (
     <>
       <div style={{ width: "50%" }}>
-        <h1 className="table_title">Obecnie wypożyczone</h1>
+        <h1 className="table_title">Obecnie zarezerwowane</h1>
         <Paper sx={{ overflow: "hidden" }}>
           <TableContainer sx={{ maxHeight: 440 }}>
             <Table stickyHeader aria-label="sticky table">

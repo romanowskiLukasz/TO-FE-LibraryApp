@@ -17,7 +17,7 @@
   cursor: pointer;
 }
 
-.catalog_book_card_container > img {
+.link > img {
   height: 300px;
   border-radius: 10px;
 }
