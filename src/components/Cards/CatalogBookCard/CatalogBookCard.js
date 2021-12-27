@@ -5,11 +5,23 @@ import Rating from "@mui/material/Rating";
 import { useStoreState } from "easy-peasy";
 import { Link } from "react-router-dom";
 
-function CatalogBookCard({ book }) {
+const axios = require("axios").default;
+
+function CatalogBookCard({ book, userRating }) {
   const { title, img, name, publishingHouse, book_id } = book;
   const isLoggedIn = useStoreState((state) => state.isLoggedIn);
+  const me = useStoreState((state) => state.me);
   const [rating, setRating] = React.useState(0);
   const [avgRating, setAvgRating] = React.useState(3);
+
+  const handleChange = (value, newValue) => {
+    setRating(newValue);
+    axios.post("http://localhost:8080/rating", {
+      stars_count: newValue,
+      book_book_id: book_id,
+      user_id: me.id,
+    });
+  };
 
   return (
     <div className="catalog_book_card_container">
@@ -31,9 +43,7 @@ function CatalogBookCard({ book }) {
             <Rating
               name="simple-controlled"
               value={rating}
-              onChange={(value, newValue) => {
-                setRating(newValue);
-              }}
+              onChange={handleChange}
             />
           </>
         )}

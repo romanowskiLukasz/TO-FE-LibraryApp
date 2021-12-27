@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import CatalogBooks from "../../components/CatalogBooks/CatalogBooks";
 import "./CatalogPage.css";
 import Categories from "../../components/Categories/Categories";
+import { useStoreState } from "easy-peasy";
 
 const axios = require("axios").default;
 
@@ -13,6 +14,8 @@ function CatalogPage() {
   const [allBooks, setAllBooks] = useState([]);
   const [categories, setCategories] = useState([]);
   const [chosenBooks, setChosenBooks] = useState([]);
+  const [userRaitings, setUserRatings] = useState([]);
+  const me = useStoreState((state) => state.me);
 
   let allCategories = [
     "Wszystkie",
@@ -32,6 +35,10 @@ function CatalogPage() {
     axios.get("http://localhost:8080/books").then((resp) => {
       setAllBooks(resp.data);
       setChosenBooks(resp.data);
+    });
+    axios.get(`http://localhost:8080/ratings/${me.id}`).then((response) => {
+      setUserRatings(response.data);
+      console.log(response.data);
     });
   }, []);
 
@@ -53,6 +60,7 @@ function CatalogPage() {
       [name]: value,
     });
   };
+
   return (
     <>
       <h1 className="catalog_page_title">Katalog</h1>
@@ -70,7 +78,7 @@ function CatalogPage() {
           filterFilmCategories={filterBooksCategories}
         />
       </div>
-      <CatalogBooks books={chosenBooks} />
+      <CatalogBooks books={chosenBooks} userRaitings={userRaitings} />
     </>
   );
 }
