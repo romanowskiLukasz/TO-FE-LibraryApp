@@ -12,6 +12,7 @@ import ContactPage from "./Pages/ContactPage/ContactPage";
 import CatalogPage from "./Pages/CatalogPage/CatalogPage";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import SingleBookPage from "./Pages/SingleBookPage/SingleBookPage";
+import FormPage from "./Pages/FormPage/FormPage";
 
 const store = createStore(model);
 
@@ -31,6 +32,7 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/books" element={<CatalogPage />} />
             <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/form" element={<FormPage />} />
             <Route path="/books/:bookId" element={<SingleBookPage />} />
           </Routes>
           <Footer />

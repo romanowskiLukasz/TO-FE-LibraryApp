@@ -1,0 +1,19 @@
+.change_user_info_container {
+  width: 250px;
+  height: 200px;
+  border: #606459 solid 2px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.change_user_info_container > input {
+  padding: 5px;
+  margin: 10px;
+}
+.header {
+  cursor: pointer;
+  position: relative;
+  top: 5px;
+  right: -110px;
+}

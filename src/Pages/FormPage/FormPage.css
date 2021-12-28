@@ -1,0 +1,42 @@
+.form_page_container {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  text-align: center;
+}
+
+.form_page_container > input {
+  margin-top: 20px;
+  padding-left: 10px;
+  outline: none;
+  border-radius: 2px;
+  height: 40px;
+  width: 100%;
+}
+
+.form_submit_button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 25px;
+  width: 50%;
+  height: 35px;
+  background-color: transparent;
+  color: #606459;
+  padding: 8px 20px;
+  border: 1px solid #606459;
+  transition: all 0.3s ease-out;
+  font-size: 1em;
+}
+
+.form_submit_button:hover {
+  cursor: pointer;
+  background: #ebc479;
+  color: #606459;
+  transition: all 0.3s ease-out;
+}
+
+.contact_form_submitted {
+  color: green;
+  font-size: 11px;
+}
