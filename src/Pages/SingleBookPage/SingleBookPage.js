@@ -15,7 +15,6 @@ function SingleBookPage() {
 
   const isLoggedIn = useStoreState((state) => state.isLoggedIn);
   const me = useStoreState((state) => state.me);
-  console.log(me.id);
 
   const handleClick = () => {
     axios
@@ -23,9 +22,7 @@ function SingleBookPage() {
         bookId: bookId,
         userId: me.id,
       })
-      .then((response) => {
-        console.log(response.status);
-      });
+      .then((response) => {});
   };
 
   useEffect(() => {

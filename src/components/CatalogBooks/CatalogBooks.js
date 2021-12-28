@@ -7,9 +7,13 @@ function CatalogBooks({ books, userRaitings }) {
     <div className="catalog_books_container">
       {books.map((book) => {
         const rating = userRaitings.find((rating) => {
-          rating.book_book_id = book.book_id;
+          if (rating.book_book_id === book.book_id) {
+            return rating.stars_count;
+          }
         });
-        return <CatalogBookCard book={book} userRating={rating} />;
+        return (
+          <CatalogBookCard key={book.book_id} book={book} userRating={rating} />
+        );
       })}
     </div>
   );

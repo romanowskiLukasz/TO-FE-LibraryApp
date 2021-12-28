@@ -61,7 +61,7 @@ function Footer() {
         <div className="social-media-wrap">
           <div className="footer-logo">
             <Link to="/" className="social-logo">
-              PK Lib <GiBlackBook size={45} style={{ "margin-left": "10px" }} />
+              PK Lib <GiBlackBook size={45} style={{ marginLeft: "10px" }} />
             </Link>
           </div>
           <small className="website-rights"> PK Lib</small>

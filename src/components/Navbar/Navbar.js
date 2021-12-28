@@ -38,10 +38,10 @@ const Navbar = () => {
           <Link
             to="/"
             className="navbar-logo"
-            style={{ "font-family": "'Galada', cursive" }}
+            style={{ fontFamily: "'Galada', cursive" }}
             onClick={closeMobileMenu}
           >
-            PK Lib <GiBlackBook size={45} style={{ "margin-left": "5px" }} />
+            PK Lib <GiBlackBook size={45} style={{ marginLeft: "5px" }} />
           </Link>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />

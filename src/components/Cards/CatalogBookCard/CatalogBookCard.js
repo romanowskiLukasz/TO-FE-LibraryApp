@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Divider from "../../Divider/Divider";
 import "./CatalogBookCard.css";
 import Rating from "@mui/material/Rating";
@@ -13,6 +13,12 @@ function CatalogBookCard({ book, userRating }) {
   const me = useStoreState((state) => state.me);
   const [rating, setRating] = React.useState(0);
   const [avgRating, setAvgRating] = React.useState(3);
+
+  useEffect(() => {
+    if (userRating != null) {
+      setRating(userRating.stars_count);
+    }
+  }, [userRating]);
 
   const handleChange = (value, newValue) => {
     setRating(newValue);

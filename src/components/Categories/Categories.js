@@ -1,7 +1,7 @@
 import React from "react";
 import { useRef } from "react";
 
-function Categories({ categories, filterFilmCategories }) {
+function Categories({ categories, filterBookCategories }) {
   const reference = useRef(null);
   return (
     <>
@@ -11,11 +11,15 @@ function Categories({ categories, filterFilmCategories }) {
         name="myBrowser"
         placeholder="Wybierz kategorie"
         ref={reference}
-        onChange={() => filterFilmCategories(reference.current.value)}
+        onChange={() => filterBookCategories(reference.current.value)}
       />
       <datalist id="browsers">
-        {categories.map((genre) => {
-          return <option value={genre}> </option>;
+        {categories.map((genre, key) => {
+          return (
+            <option key={key} value={genre}>
+              {" "}
+            </option>
+          );
         })}
       </datalist>
     </>

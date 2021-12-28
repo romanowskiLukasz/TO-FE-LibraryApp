@@ -2,11 +2,15 @@ import React, { useState, useEffect } from "react";
 import Banner from "../../components/Banner/Banner";
 import LibraryInfo from "../../components/LibraryInfo/LibraryInfo";
 import NewBooks from "../../components/NewBooks/NewBooks";
+import { useStoreState } from "easy-peasy";
 import "./HomePage.css";
+import { useStoreActions } from "easy-peasy";
 const axios = require("axios").default;
 
 function HomePage() {
   const [allBooks, setAllBooks] = useState([]);
+  const userEmail = useStoreState((state) => state.loggedUserEmal);
+  const setMe = useStoreActions((actions) => actions.setMe);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -14,6 +18,12 @@ function HomePage() {
       setAllBooks(resp.data);
     });
   }, []);
+
+  useEffect(() => {
+    axios.get(`http://localhost:8080/me/${userEmail}`).then((resp) => {
+      setMe(resp.data);
+    });
+  }, [userEmail]);
 
   return (
     <>
