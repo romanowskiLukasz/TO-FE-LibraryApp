@@ -9,31 +9,36 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import "./ReservedBookTable.css";
 
-const columns = [
-  { id: "title", label: "Tytuł", minWidth: 170 },
-  { id: "name", label: "Autor", minWidth: 100 },
-  {
-    id: "reservation_date",
-    label: "Data wpożyczenia",
-    minWidth: 170,
-    align: "right",
-  },
-  {
-    id: "return_date",
-    label: "Data oddania",
-    minWidth: 170,
-    align: "right",
-  },
-];
-
 function createData(title, author, bookBorrowDate, bookReturnDate) {
   return { title, author, bookBorrowDate, bookReturnDate };
 }
 
-export default function ReservedBookTable({ books }) {
+export default function ReservedBookTable({
+  books,
+  title,
+  columnTitle1,
+  columnTitle2,
+}) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [rows, setRows] = useState(books);
+
+  const columns = [
+    { id: "title", label: "Tytuł", minWidth: 170 },
+    { id: "name", label: "Autor", minWidth: 100 },
+    {
+      id: "reservation_date",
+      label: columnTitle1,
+      minWidth: 170,
+      align: "right",
+    },
+    {
+      id: "return_date",
+      label: columnTitle2,
+      minWidth: 170,
+      align: "right",
+    },
+  ];
 
   useEffect(() => {
     setRows(books);
@@ -50,8 +55,8 @@ export default function ReservedBookTable({ books }) {
 
   return (
     <>
-      <div style={{ width: "50%" }}>
-        <h1 className="table_title">Obecnie zarezerwowane</h1>
+      <div>
+        <h1 className="table_title">{title}</h1>
         <Paper sx={{ overflow: "hidden" }}>
           <TableContainer sx={{ maxHeight: 440 }}>
             <Table stickyHeader aria-label="sticky table">
