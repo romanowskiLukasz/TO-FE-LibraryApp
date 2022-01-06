@@ -8,6 +8,7 @@ import { GiBlackBook } from "react-icons/gi";
 
 const Navbar = () => {
   const isLoggedIn = useStoreState((state) => state.isLoggedIn);
+  const me = useStoreState((state) => state.me);
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -52,6 +53,29 @@ const Navbar = () => {
                 Strona Główna
               </Link>
             </li>
+            {me.account_type === "admin" && (
+              <>
+                <li className="nav-item">
+                  <Link
+                    to="/users"
+                    className="nav-links"
+                    onClick={closeMobileMenu}
+                  >
+                    Użytkownicy
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    to="/reservations"
+                    className="nav-links"
+                    onClick={closeMobileMenu}
+                  >
+                    Rezerwacje
+                  </Link>
+                </li>
+              </>
+            )}
+
             <li className="nav-item">
               <Link to="/books" className="nav-links" onClick={closeMobileMenu}>
                 Katalog

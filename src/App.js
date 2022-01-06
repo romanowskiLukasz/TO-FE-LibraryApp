@@ -13,6 +13,9 @@ import CatalogPage from "./Pages/CatalogPage/CatalogPage";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import SingleBookPage from "./Pages/SingleBookPage/SingleBookPage";
 import FormPage from "./Pages/FormPage/FormPage";
+import UsersPage from "./Pages/UsersPage/UsersPage";
+import SingleUserPage from "./Pages/SingleUserPage/SingleUserPage";
+import ReservationsPage from "./Pages/ReservationsPage/ReservationsPage";
 
 const store = createStore(model);
 
@@ -33,7 +36,10 @@ function App() {
             <Route path="/books" element={<CatalogPage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/form" element={<FormPage />} />
+            <Route path="/users" element={<UsersPage />} />
+            <Route path="/reservations" element={<ReservationsPage />} />
             <Route path="/books/:bookId" element={<SingleBookPage />} />
+            <Route path="/users/:userId" element={<SingleUserPage />} />
           </Routes>
           <Footer />
         </Router>

@@ -6,10 +6,8 @@ import { useStoreState } from "easy-peasy";
 const axios = require("axios").default;
 
 function SingleBookPage() {
-  let bookId = window.location.href.substring(
-    window.location.href.length - 1,
-    window.location.href.length
-  );
+  let bookId = window.location.href.substring(28, window.location.href.length);
+
   const [bookInfo, setBookInfo] = useState([]);
   const [reservationResponse, setReservationResponse] = useState("");
 

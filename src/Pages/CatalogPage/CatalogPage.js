@@ -39,10 +39,10 @@ function CatalogPage() {
       axios.get(`http://localhost:8080/ratings/${me.id}`).then((response) => {
         setUserRatings(response.data);
       });
-      axios.get(`http://localhost:8080/avgRatings`).then((response) => {
-        setAvgRatings(response.data);
-      });
     }
+    axios.get(`http://localhost:8080/avgRatings`).then((response) => {
+      setAvgRatings(response.data);
+    });
   }, []);
 
   const filterBooksCategories = (category) => {

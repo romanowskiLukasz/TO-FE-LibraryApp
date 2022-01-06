@@ -9,6 +9,7 @@ const axios = require("axios").default;
 
 function HomePage() {
   const [allBooks, setAllBooks] = useState([]);
+  const [popularBooks, setPopularBooks] = useState([]);
   const userEmail = useStoreState((state) => state.loggedUserEmal);
   const setMe = useStoreActions((actions) => actions.setMe);
 
@@ -16,6 +17,9 @@ function HomePage() {
     window.scrollTo(0, 0);
     axios.get("http://localhost:8080/books").then((resp) => {
       setAllBooks(resp.data);
+    });
+    axios.get("http://localhost:8080/popularBooks").then((resp) => {
+      setPopularBooks(resp.data);
     });
   }, []);
 
@@ -31,11 +35,11 @@ function HomePage() {
       <div className="home_page_container">
         <div className="home_page_books_container">
           <NewBooks
-            books={allBooks.slice(0, 8)}
+            books={popularBooks.slice(0, 8)}
             sectionTitle={"Popularne książki"}
           />
           <NewBooks
-            books={allBooks.slice(0, 8)}
+            books={allBooks.slice(allBooks.length - 8, allBooks.length)}
             sectionTitle={"Nowości w naszej bibliotece"}
           />
         </div>

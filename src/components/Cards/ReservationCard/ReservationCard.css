@@ -1,0 +1,24 @@
+.reservation_card_container {
+  display: flex;
+  margin-top: 30px;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.reservation_card_container:hover {
+  box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em,
+    rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+  transform: translateY(-3px) scale(1.05);
+
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+}
+
+.reservation_card_title {
+  margin-bottom: 10px;
+  color: #32362d;
+  font-family: "PT Serif", serif;
+}
