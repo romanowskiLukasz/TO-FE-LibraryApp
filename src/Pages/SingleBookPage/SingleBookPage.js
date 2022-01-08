@@ -9,18 +9,17 @@ function SingleBookPage() {
   let bookId = window.location.href.substring(28, window.location.href.length);
 
   const [bookInfo, setBookInfo] = useState([]);
-  const [reservationResponse, setReservationResponse] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const isLoggedIn = useStoreState((state) => state.isLoggedIn);
   const me = useStoreState((state) => state.me);
 
   const handleClick = () => {
-    axios
-      .post("http://localhost:8080/book/reservation", {
-        bookId: bookId,
-        userId: me.id,
-      })
-      .then((response) => {});
+    axios.post("http://localhost:8080/book/reservation", {
+      bookId: bookId,
+      userId: me.id,
+    });
+    setIsSubmitted(true);
   };
 
   useEffect(() => {
@@ -39,12 +38,19 @@ function SingleBookPage() {
         <Divider sectionTitle={title} />
         <p>{description}</p>
         {isLoggedIn && (
-          <button
-            className="single_book_reservation_button"
-            onClick={handleClick}
-          >
-            Zarezerwuj
-          </button>
+          <>
+            <button
+              className="single_book_reservation_button"
+              onClick={handleClick}
+            >
+              Zarezerwuj
+            </button>
+            {isSubmitted && (
+              <p className="book_reservation_submitted_info">
+                Książka została zarezerwowana
+              </p>
+            )}
+          </>
         )}
       </div>
       <div className="single_book_description_container">

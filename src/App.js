@@ -16,6 +16,7 @@ import FormPage from "./Pages/FormPage/FormPage";
 import UsersPage from "./Pages/UsersPage/UsersPage";
 import SingleUserPage from "./Pages/SingleUserPage/SingleUserPage";
 import ReservationsPage from "./Pages/ReservationsPage/ReservationsPage";
+import BorrowedBooksPage from "./Pages/BorrowedBooksPage/BorrowedBooksPage";
 
 const store = createStore(model);
 
@@ -38,6 +39,7 @@ function App() {
             <Route path="/form" element={<FormPage />} />
             <Route path="/users" element={<UsersPage />} />
             <Route path="/reservations" element={<ReservationsPage />} />
+            <Route path="/borrowedBooks" element={<BorrowedBooksPage />} />
             <Route path="/books/:bookId" element={<SingleBookPage />} />
             <Route path="/users/:userId" element={<SingleUserPage />} />
           </Routes>

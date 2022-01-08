@@ -3,11 +3,13 @@ import { useStoreState } from "easy-peasy";
 import "./UserInfo.css";
 import ChangeUserInfo from "../../ChangeUserInfo/ChangeUserInfo";
 import { useStoreActions } from "easy-peasy";
+import { Link } from "react-router-dom";
 
 const axios = require("axios").default;
 
-function ContactInfo() {
-  const me = useStoreState((state) => state.me);
+function ContactInfo({ userData, isLogoutDisplayed, title, fine }) {
+  const userStoreData = useStoreState((state) => state.me);
+  let me = userData === undefined ? userStoreData : userData;
   const [email, setEmail] = useState(
     useStoreState((state) => state.loggedUserEmal)
   );
@@ -26,8 +28,9 @@ function ContactInfo() {
   };
 
   const changeEmail = (values) => {
-    if (me != null) {
+    if (me.id != undefined) {
       changeEmailInStore(values.newValue);
+      me.email = values.newValue;
       setEmail(values.newValue);
       axios.put("http://localhost:8080/user/changeEmail", {
         password: values.password,
@@ -38,7 +41,7 @@ function ContactInfo() {
   };
 
   const changePassword = (values) => {
-    if (me != null) {
+    if (me.id != undefined) {
       axios.put("http://localhost:8080/user/changePassword", {
         password: values.password,
         newPassword: values.newValue,
@@ -47,21 +50,25 @@ function ContactInfo() {
     }
   };
 
+  const handleLogout = () => {
+    window.location = "http://localhost:3000";
+  };
+
   return (
     <div className="contact_info_container">
-      <h2>Twoje dane</h2>
+      <h2>{title}</h2>
       <div className="user_info_divider" />
       <h3>Numer karty do biblioteki</h3>
       <p>00000{me.id}</p>
       <div className="user_info_divider" />
       <h3>Email</h3>
-      <p>{email}</p>
-      {!showEmailChange && (
+      <p>{me.email}</p>
+      {!showEmailChange && isLogoutDisplayed && (
         <button className="user_change_info_button" onClick={toggleEmailChange}>
           Zmień email
         </button>
       )}
-      {showEmailChange && (
+      {showEmailChange && isLogoutDisplayed && (
         <ChangeUserInfo
           placeholder={"Podaj nowy email"}
           isDisplayed={toggleEmailChange}
@@ -71,27 +78,38 @@ function ContactInfo() {
       <div className="user_info_divider" />
       <h3>Imie i Nazwisko</h3>
       <p>{me.name}</p>
-      <div className="user_info_divider" />
-      <h3>Hasło</h3>
-      {!showPasswordChange && (
-        <button
-          className="user_change_info_button"
-          onClick={togglePasswordChange}
-        >
-          Zmień hasło
-        </button>
-      )}
-      {showPasswordChange && (
-        <ChangeUserInfo
-          placeholder={"Podaj nowe hasło"}
-          isDisplayed={togglePasswordChange}
-          onSubmit={changePassword}
-        />
-      )}
 
       <div className="user_info_divider" />
-      <h3>Stan konta </h3>
-      <p>Saldo konta: 0.00 PLN</p>
+
+      {isLogoutDisplayed && (
+        <>
+          <h3>Hasło</h3>
+          {!showPasswordChange && (
+            <button
+              className="user_change_info_button"
+              onClick={togglePasswordChange}
+            >
+              Zmień hasło
+            </button>
+          )}
+          {showPasswordChange && (
+            <ChangeUserInfo
+              placeholder={"Podaj nowe hasło"}
+              isDisplayed={togglePasswordChange}
+              onSubmit={changePassword}
+            />
+          )}
+          <div className="user_info_divider" />
+        </>
+      )}
+
+      <h3>Do zapłaty </h3>
+      <p>Naliczona kwota: {fine} PLN</p>
+      {isLogoutDisplayed && (
+        <button className="logout_button" onClick={handleLogout}>
+          Wyloguj się
+        </button>
+      )}
     </div>
   );
 }

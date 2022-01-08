@@ -16,7 +16,7 @@ const Navbar = () => {
   const closeMobileMenu = () => setClick(false);
 
   const showButton = () => {
-    if (window.innerWidth <= 960) {
+    if (window.innerWidth <= 1500) {
       setButton(false);
     } else {
       setButton(true);
@@ -71,6 +71,15 @@ const Navbar = () => {
                     onClick={closeMobileMenu}
                   >
                     Rezerwacje
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    to="/borrowedBooks"
+                    className="nav-links"
+                    onClick={closeMobileMenu}
+                  >
+                    Wypożyczenia
                   </Link>
                 </li>
               </>

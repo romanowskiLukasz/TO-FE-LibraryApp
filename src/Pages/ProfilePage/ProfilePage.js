@@ -3,6 +3,7 @@ import "./ProfilePage.css";
 import ReservedBookTable from "../../components/ReservedBookTable/ReservedBookTable";
 import UserInfo from "../../components/UserInfo/UserInfo";
 import { useStoreState } from "easy-peasy";
+import { calculateFine } from "../../components/Utils/calculateFine";
 
 const axios = require("axios").default;
 
@@ -10,6 +11,8 @@ function ProfilePage() {
   const userId = useStoreState((state) => state.me.id);
   const [reservations, setReservations] = useState([]);
   const [borrowed, setBorrowed] = useState([]);
+  const [usersFine, setUsersFine] = useState(0.0);
+  let fine = 0.0;
 
   useEffect(() => {
     if (userId != null) {
@@ -20,17 +23,34 @@ function ProfilePage() {
         .get(`http://localhost:8080/borrowedBooks/${userId}`)
         .then((resp) => {
           setBorrowed(resp.data);
-          console.log(resp.data);
         });
     }
   }, []);
+
+  useEffect(() => {
+    let daysDiff;
+    borrowed.map((book) => {
+      const returnDate = new Date(book.return_date);
+      const todaysDate = new Date();
+
+      daysDiff = calculateFine(returnDate, todaysDate);
+
+      fine += daysDiff * 0.25;
+      setUsersFine(fine);
+    });
+  }, [borrowed]);
 
   return (
     <>
       <h1 className="contact_page_title">Twój profil</h1>
       <div className="contact_page_divider" />
       <div className="contact_page_container">
-        <UserInfo />
+        <UserInfo
+          userId={userId}
+          isLogoutDisplayed={true}
+          title={"Twoje dane"}
+          fine={usersFine.toFixed(2)}
+        />
         <div className="tables_container">
           <ReservedBookTable
             books={reservations}

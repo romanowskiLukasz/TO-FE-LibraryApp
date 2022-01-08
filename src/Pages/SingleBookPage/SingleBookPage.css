@@ -44,3 +44,9 @@
   color: #606459;
   transition: all 0.3s ease-out;
 }
+
+.book_reservation_submitted_info {
+  text-align: center;
+  color: green;
+  font-size: 15px;
+}

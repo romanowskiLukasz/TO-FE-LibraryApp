@@ -1,40 +1,29 @@
-import "./ReservationPage.css";
+import "./BorrowedBooksPage.css";
 import React, { useRef, useEffect, useState } from "react";
 import ReservationCard from "../../components/Cards/ReservationCard/ReservationCard";
+import BorrowedBookCard from "../../components/Cards/BorrowedBookCard/BorrowedBookCard";
 
 const axios = require("axios").default;
 
-function ReservationsPage() {
+function BorrowedBooksPage() {
   const [reservations, setReservations] = useState([]);
   const inputRef = useRef("");
   const [choosenReservations, setChoosenReservations] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    axios.get("http://localhost:8080/admin/allReservations").then((resp) => {
+    axios.get("http://localhost:8080/admin/allBorrowedBooks").then((resp) => {
       setReservations(resp.data);
       setChoosenReservations(resp.data);
     });
   }, []);
-
-  const handleDelete = (id) => {
-    let newReservations = reservations.filter(
-      (reservation) => reservation.id != id
-    );
-    setChoosenReservations(newReservations);
-    axios.delete("http://localhost:8080/deleteReservation/" + id);
-  };
 
   const handleapprovement = (userId, bookId, id) => {
     let newReservations = reservations.filter(
       (reservation) => reservation.id != id
     );
     setChoosenReservations(newReservations);
-    axios.delete("http://localhost:8080/deleteReservation/" + id);
-    axios.post("http://localhost:8080/admin/addBorrowedBook", {
-      bookId: bookId,
-      userId: userId,
-    });
+    axios.delete("http://localhost:8080/deleteBorrowedBook/" + id);
   };
 
   const handleSearchChange = () => {
@@ -51,7 +40,7 @@ function ReservationsPage() {
 
   return (
     <>
-      <h1 className="catalog_page_title">Przeglądaj rezerwacje</h1>
+      <h1 className="catalog_page_title">Przeglądaj wypożyczone książki</h1>
       <div className="catalog_page_divider" />
       <div className="catalog_page_inputs_container">
         <input
@@ -64,10 +53,9 @@ function ReservationsPage() {
       <div className="users_cards_container">
         {choosenReservations.map((reservation) => {
           return (
-            <ReservationCard
+            <BorrowedBookCard
               key={reservation.id}
               reservation={reservation}
-              handleDelete={handleDelete}
               handleapprovement={handleapprovement}
             />
           );
@@ -77,4 +65,4 @@ function ReservationsPage() {
   );
 }
 
-export default ReservationsPage;
+export default BorrowedBooksPage;

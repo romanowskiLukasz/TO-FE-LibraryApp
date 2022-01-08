@@ -23,7 +23,6 @@ function AdminForm() {
     let newForms = forms.filter((form) => form.id != id);
     let approuvedForm = forms.filter((form) => form.id === id);
     setForms(newForms);
-    console.log(approuvedForm);
     axios.delete("http://localhost:8080/deleteForm/" + id);
     axios.post("http://localhost:8080/admin/addBook", {
       id: id,
@@ -36,7 +35,6 @@ function AdminForm() {
     });
   };
 
-  console.log(forms);
   return (
     <>
       <h1 className="catalog_page_title">Przesłane formularze</h1>

@@ -57,7 +57,6 @@ function CatalogPage() {
 
   const handleSearchChange = () => {
     setSearchTerm(inputRef.current.value);
-    console.log(inputRef.current.value);
     if (inputRef.current.value !== "") {
       const newItems = chosenBooks.filter((item) => {
         return item.title
