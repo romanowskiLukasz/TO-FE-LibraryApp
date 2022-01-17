@@ -35,7 +35,12 @@ function Footer() {
             <Link to="/">LibPK</Link>
             <Link to="/">Pracuj z nami</Link>
             <Link to="/">Newsletter</Link>
-            <Link to="/">TKontakt</Link>
+            <a
+              target="_blank"
+              href="https://docs.google.com/document/d/1qTw10aiZVWAonn6JNy2GlJ2jizw1SAW5QPlyhfBFDaM/edit"
+            >
+              Regulamin{" "}
+            </a>
           </div>
         </div>
         <div className="footer-link-wrapper">
