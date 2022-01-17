@@ -15,7 +15,7 @@ function ContactInfo() {
         Mariusz Pudzianowski <br />
         tel. 12 61 89 100
         <br />
-        e-mail: Mariusz.Pudzianowski@biblioteka.krakow.pl
+        e-mail: Mariusz.Pudzianowski@biblioteka.pk.pl
         <br />
       </p>
       <h3>Zastępca Dyrektora ds. merytorycznych</h3>
@@ -24,7 +24,7 @@ function ContactInfo() {
         <br />
         tel. 12 61 89 100
         <br />
-        e-mail: adam.małysz@biblioteka.krakow.pl
+        e-mail: adam.małysz@biblioteka.pk.pl
         <br />
       </p>
       <h3>Zastępca Dyrektora ds. administracyjnych i organizacyjnych</h3>
@@ -33,7 +33,7 @@ function ContactInfo() {
         <br />
         tel. 12 61 89 100
         <br />
-        e-mail: robert.kubica@biblioteka.krakow.pl
+        e-mail: robert.kubica@biblioteka.pk.pl
         <br />
       </p>
     </div>
