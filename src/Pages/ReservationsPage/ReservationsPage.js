@@ -18,15 +18,16 @@ function ReservationsPage() {
   }, []);
 
   const handleDelete = (id) => {
-    let newReservations = reservations.filter(
+    let newReservations = choosenReservations.filter(
       (reservation) => reservation.id != id
     );
+    console.log(newReservations);
     setChoosenReservations(newReservations);
     axios.delete("http://localhost:8080/deleteReservation/" + id);
   };
 
   const handleapprovement = (userId, bookId, id) => {
-    let newReservations = reservations.filter(
+    let newReservations = choosenReservations.filter(
       (reservation) => reservation.id != id
     );
     setChoosenReservations(newReservations);

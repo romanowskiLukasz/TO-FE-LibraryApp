@@ -19,7 +19,7 @@ function BorrowedBooksPage() {
   }, []);
 
   const handleapprovement = (userId, bookId, id) => {
-    let newReservations = reservations.filter(
+    let newReservations = choosenReservations.filter(
       (reservation) => reservation.id != id
     );
     setChoosenReservations(newReservations);
