@@ -24,7 +24,7 @@ function AdminForm() {
     let approuvedForm = forms.filter((form) => form.id === id);
     setForms(newForms);
     axios.delete("http://localhost:8080/deleteForm/" + id);
-    axios.post("http://localhost:8080/admin/addBook", {
+    axios.post("http://localhost:8080/admin/addfilm", {
       id: id,
       description: approuvedForm[0].description,
       img: approuvedForm[0].img,

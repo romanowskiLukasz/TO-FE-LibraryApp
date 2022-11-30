@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./ProfilePage.css";
-import ReservedBookTable from "../../components/ReservedBookTable/ReservedBookTable";
+import ReservedFilmTable from "../../components/ReservedFilmTable/ReservedFilmTable";
 import UserInfo from "../../components/UserInfo/UserInfo";
 import { useStoreState } from "easy-peasy";
 import { calculateFine } from "../../components/Utils/calculateFine";
@@ -20,7 +20,7 @@ function ProfilePage() {
         setReservations(resp.data);
       });
       axios
-        .get(`http://localhost:8080/borrowedBooks/${userId}`)
+        .get(`http://localhost:8080/borrowedFilms/${userId}`)
         .then((resp) => {
           setBorrowed(resp.data);
         });
@@ -29,8 +29,8 @@ function ProfilePage() {
 
   useEffect(() => {
     let daysDiff;
-    borrowed.map((book) => {
-      const returnDate = new Date(book.return_date);
+    borrowed.map((film) => {
+      const returnDate = new Date(film.return_date);
       const todaysDate = new Date();
 
       daysDiff = calculateFine(returnDate, todaysDate);
@@ -52,14 +52,14 @@ function ProfilePage() {
           fine={usersFine.toFixed(2)}
         />
         <div className="tables_container">
-          <ReservedBookTable
-            books={reservations}
+          <ReservedFilmTable
+            films={reservations}
             title={"Obecnie zarezerwowane"}
             columnTitle1={"Data rezerwacji"}
             columnTitle2={"Wygaśnięcie rezerwacji"}
           />
-          <ReservedBookTable
-            books={borrowed}
+          <ReservedFilmTable
+            films={borrowed}
             title={"Obecnie wypożyczone"}
             columnTitle1={"Data wypożyczenia"}
             columnTitle2={"Termin oddania"}

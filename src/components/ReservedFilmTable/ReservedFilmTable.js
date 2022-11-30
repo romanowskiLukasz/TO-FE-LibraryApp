@@ -7,21 +7,21 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import "./ReservedBookTable.css";
+import "./ReservedFilmTable.css";
 
-function createData(title, author, bookBorrowDate, bookReturnDate) {
-  return { title, author, bookBorrowDate, bookReturnDate };
+function createData(title, author, filmBorrowDate, filmReturnDate) {
+  return { title, author, filmBorrowDate, filmReturnDate };
 }
 
-export default function ReservedBookTable({
-  books,
+export default function ReservedFilmTable({
+  films,
   title,
   columnTitle1,
   columnTitle2,
 }) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  const [rows, setRows] = useState(books);
+  const [rows, setRows] = useState(films);
 
   const columns = [
     { id: "title", label: "Tytuł", minWidth: 170 },
@@ -41,8 +41,8 @@ export default function ReservedBookTable({
   ];
 
   useEffect(() => {
-    setRows(books);
-  }, [books]);
+    setRows(films);
+  }, [films]);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import CatalogBooks from "../../components/CatalogBooks/CatalogBooks";
+import CatalogFilms from "../../components/CatalogFilms/CatalogFilms";
 import "./CatalogPage.css";
 import Categories from "../../components/Categories/Categories";
 import { useStoreState } from "easy-peasy";
@@ -7,9 +7,9 @@ import { useStoreState } from "easy-peasy";
 const axios = require("axios").default;
 
 function CatalogPage() {
-  const [allBooks, setAllBooks] = useState([]);
+  const [allfilms, setAllfilms] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [chosenBooks, setChosenBooks] = useState([]);
+  const [chosenfilms, setChosenfilms] = useState([]);
   const [userRaitings, setUserRatings] = useState([]);
   const [avgRatings, setAvgRatings] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -18,22 +18,22 @@ function CatalogPage() {
 
   let allCategories = [
     "Wszystkie",
-    ...new Set(allBooks.map((item) => item.category)),
+    ...new Set(allfilms.map((item) => item.category)),
   ];
 
   useEffect(() => {
     allCategories = [
       "Wszystkie",
-      ...new Set(allBooks.map((item) => item.genre)),
+      ...new Set(allfilms.map((item) => item.genre)),
     ];
     setCategories(allCategories);
-  }, [allBooks]);
+  }, [allfilms]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    axios.get("http://localhost:8080/books").then((resp) => {
-      setAllBooks(resp.data);
-      setChosenBooks(resp.data);
+    axios.get("http://localhost:8080/films").then((resp) => {
+      setAllfilms(resp.data);
+      setChosenfilms(resp.data);
     });
     if (me.id != null) {
       axios.get(`http://localhost:8080/ratings/${me.id}`).then((response) => {
@@ -45,26 +45,26 @@ function CatalogPage() {
     });
   }, []);
 
-  const filterBooksCategories = (category) => {
+  const filterfilmsCategories = (category) => {
     if (category === "Wszystkie" || category === "") {
-      setChosenBooks(allBooks);
+      setChosenfilms(allfilms);
       return;
     }
-    const newItems = chosenBooks.filter((item) => item.genre === category);
+    const newItems = chosenfilms.filter((item) => item.genre === category);
 
-    return setChosenBooks(newItems);
+    return setChosenfilms(newItems);
   };
 
   const handleSearchChange = () => {
     setSearchTerm(inputRef.current.value);
     if (inputRef.current.value !== "") {
-      const newItems = chosenBooks.filter((item) => {
+      const newItems = chosenfilms.filter((item) => {
         return item.title
           .toLowerCase()
           .includes(inputRef.current.value.toLowerCase());
       });
-      return setChosenBooks(newItems);
-    } else if (inputRef.current.value == "") return setChosenBooks(allBooks);
+      return setChosenfilms(newItems);
+    } else if (inputRef.current.value == "") return setChosenfilms(allfilms);
   };
 
   return (
@@ -76,15 +76,15 @@ function CatalogPage() {
           ref={inputRef}
           onChange={handleSearchChange}
           type="text"
-          placeholder="Wyszukaj książkę"
+          placeholder="Wyszukaj film"
         />
         <Categories
           categories={categories}
-          filterBookCategories={filterBooksCategories}
+          filterfilmCategories={filterfilmsCategories}
         />
       </div>
-      <CatalogBooks
-        books={chosenBooks}
+      <CatalogFilms
+        films={chosenfilms}
         userRaitings={userRaitings}
         avgRatings={avgRatings}
       />

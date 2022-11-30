@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from "react";
 import Banner from "../../components/Banner/Banner";
-import LibraryInfo from "../../components/LibraryInfo/LibraryInfo";
-import NewBooks from "../../components/NewBooks/NewBooks";
+import RentalInfo from "../../components/RentalInfo/RentalInfo";
+import NewFilms from "../../components/NewFilms/NewFilms";
 import { useStoreState } from "easy-peasy";
 import "./HomePage.css";
 import { useStoreActions } from "easy-peasy";
 const axios = require("axios").default;
 
 function HomePage() {
-  const [allBooks, setAllBooks] = useState([]);
-  const [popularBooks, setPopularBooks] = useState([]);
+  const [allfilms, setAllfilms] = useState([]);
+  const [popularfilms, setPopularfilms] = useState([]);
   const userEmail = useStoreState((state) => state.loggedUserEmal);
   const setMe = useStoreActions((actions) => actions.setMe);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    axios.get("http://localhost:8080/books").then((resp) => {
-      setAllBooks(resp.data);
+    axios.get("http://localhost:8080/films").then((resp) => {
+      setAllfilms(resp.data);
     });
-    axios.get("http://localhost:8080/popularBooks").then((resp) => {
-      setPopularBooks(resp.data);
+    axios.get("http://localhost:8080/popularFilms").then((resp) => {
+      setPopularfilms(resp.data);
     });
   }, []);
 
@@ -33,18 +33,18 @@ function HomePage() {
     <>
       <Banner />
       <div className="home_page_container">
-        <div className="home_page_books_container">
-          <NewBooks
-            books={popularBooks.slice(0, 8)}
-            sectionTitle={"Popularne książki"}
+        <div className="home_page_films_container">
+          <NewFilms
+            films={popularfilms.slice(0, 8)}
+            sectionTitle={"Popularne filmy"}
           />
-          <NewBooks
-            books={allBooks.slice(allBooks.length - 8, allBooks.length)}
-            sectionTitle={"Nowości w naszej bibliotece"}
+          <NewFilms
+            films={allfilms.slice(allfilms.length - 8, allfilms.length)}
+            sectionTitle={"Nowości w naszej wypożyczalni"}
           />
         </div>
         <div className="home_page_info_container">
-          <LibraryInfo />
+          <RentalInfo />
         </div>
       </div>
     </>

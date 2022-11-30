@@ -62,10 +62,10 @@ function UserForm() {
       <div className="contact_page_divider" />
       <div className="form_page_container">
         <p>
-          W naszej bibliotece dbamy, by każdy znalazł coś dla siebie. Jeżeli
-          chciałbyś wypożyczyć książkę, której nie ma w naszym zbiorze możesz
+          W naszej wypożyczalni dbamy, by każdy znalazł coś dla siebie. Jeżeli
+          chciałbyś wypożyczyć film, któregp nie ma w naszym zbiorze możesz
           złożyć podanie o jej zakup poprzez formularz. W poniższym okienku
-          należy podać tytuł oraz autora książki.
+          należy podać tytuł oraz reżysera filmu.
         </p>
         <input
           value={values.img}

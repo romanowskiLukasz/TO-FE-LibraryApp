@@ -58,7 +58,7 @@ function ContactInfo({ userData, isLogoutDisplayed, title, fine }) {
     <div className="contact_info_container">
       <h2>{title}</h2>
       <div className="user_info_divider" />
-      <h3>Numer karty do biblioteki</h3>
+      <h3>Numer karty do wyypożyczalni</h3>
       <p>00000{me.id}</p>
       <div className="user_info_divider" />
       <h3>Email</h3>

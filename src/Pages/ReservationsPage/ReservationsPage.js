@@ -26,14 +26,14 @@ function ReservationsPage() {
     axios.delete("http://localhost:8080/deleteReservation/" + id);
   };
 
-  const handleapprovement = (userId, bookId, id) => {
+  const handleapprovement = (userId, filmId, id) => {
     let newReservations = choosenReservations.filter(
       (reservation) => reservation.id != id
     );
     setChoosenReservations(newReservations);
     axios.delete("http://localhost:8080/deleteReservation/" + id);
-    axios.post("http://localhost:8080/admin/addBorrowedBook", {
-      bookId: bookId,
+    axios.post("http://localhost:8080/admin/addBorrowedFilm", {
+      filmId: filmId,
       userId: userId,
     });
   };

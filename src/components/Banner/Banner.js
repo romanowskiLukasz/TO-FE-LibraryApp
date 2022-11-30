@@ -5,7 +5,7 @@ import baner from "../../img/baner.png";
 function Banner() {
   return (
     <div className="banner_container">
-      <img src={baner} alt={"banner photo"}></img>
+      <img src={'https://cdn-icons-png.flaticon.com/512/3574/3574820.png'} alt={"banner photo"}></img>
     </div>
   );
 }

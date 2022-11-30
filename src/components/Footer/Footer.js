@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Button from "../Buttons/Button";
 import "./Footer.css";
-import { GiBlackBook } from "react-icons/gi";
+import { GiBlackfilm } from "react-icons/gi";
 
 function Footer() {
   return (
@@ -32,7 +32,7 @@ function Footer() {
         <div className="footer-link-wraper">
           <div className="footer-link-items">
             <h2>O NAS</h2>
-            <Link to="/">LibPK</Link>
+            <Link to="/">FilmRental</Link>
             <Link to="/">Pracuj z nami</Link>
             <Link to="/">Newsletter</Link>
             <a
@@ -47,7 +47,7 @@ function Footer() {
           <div className="footer-link-items">
             <h2>SOCIAL MEDIA</h2>
             <Link to="/">Instagram</Link>
-            <Link to="/">Facebook</Link>
+            <Link to="/">Facefilm</Link>
             <Link to="/">Youtube</Link>
             <Link to="/">Twitter</Link>
           </div>
@@ -66,18 +66,18 @@ function Footer() {
         <div className="social-media-wrap">
           <div className="footer-logo">
             <Link to="/" className="social-logo">
-              PK Lib <GiBlackBook size={45} style={{ marginLeft: "10px" }} />
+              FilmRental <img src={'https://cdn-icons-png.flaticon.com/512/3574/3574820.png'} style={{maxWidth:"45px"}} />
             </Link>
           </div>
-          <small className="website-rights"> PK Lib</small>
+          <small className="website-rights"> FilmRental</small>
           <div className="social-icons">
             <Link
-              className="social-icon-link facebook"
+              className="social-icon-link facefilm"
               to="/"
               target="_blank"
-              aria-label="Facebook"
+              aria-label="Facefilm"
             >
-              <i className="fab fa-facebook-f" />
+              <i className="fab fa-facefilm-f" />
             </Link>
             <Link
               className="social-icon-link instagram"

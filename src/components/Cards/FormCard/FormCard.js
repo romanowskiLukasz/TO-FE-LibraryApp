@@ -9,7 +9,7 @@ function FormCard({ form, handleDelete, handleapprovement }) {
   return (
     <div className="form_card_container">
       <img src={img} />
-      <div className="catalog_book_card_content">
+      <div className="catalog_film_card_content">
         <Divider sectionTitle={title} />
         <p>Autor: {author}</p>
         <p>Wydawnictwo: {publishingHouse}</p>

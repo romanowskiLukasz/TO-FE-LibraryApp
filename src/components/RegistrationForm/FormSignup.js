@@ -19,7 +19,7 @@ const FormSignup = ({ submitForm }) => {
         </div>
         <div className="form-inputs">
           <p className="form_header_text">
-            Aby zweryfikować konto należy udać się do placówki biblioteki
+            Aby zweryfikować konto należy udać się do placówki
           </p>
           <label className="form-label">Imię i Nazwisko</label>
           <input

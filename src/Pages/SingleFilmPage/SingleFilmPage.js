@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Divider from "../../components/Divider/Divider";
-import "./SingleBookPage.css";
+import "./SingleFilmPage.css";
 import { useStoreState } from "easy-peasy";
 
 const axios = require("axios").default;
 
-function SingleBookPage() {
-  let bookId = window.location.href.substring(28, window.location.href.length);
+function SingleFilmPage() {
+  let filmId = window.location.href.substring(28, window.location.href.length);
 
-  const [bookInfo, setBookInfo] = useState([]);
+  const [filmInfo, setfilmInfo] = useState([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState(false);
 
@@ -17,8 +17,8 @@ function SingleBookPage() {
 
   const handleClick = () => {
     axios
-      .post("http://localhost:8080/book/reservation", {
-        bookId: bookId,
+      .post("http://localhost:8080/film/reservation", {
+        filmId: filmId,
         userId: me.id,
       })
       .then((response) => {
@@ -33,41 +33,41 @@ function SingleBookPage() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    axios.get(`http://localhost:8080/books/${bookId}`).then((resp) => {
-      setBookInfo(resp.data);
+    axios.get(`http://localhost:8080/films/${filmId}`).then((resp) => {
+      setfilmInfo(resp.data);
     });
   }, []);
 
-  const { description, genre, img, name, publishingHouse, title } = bookInfo;
+  const { description, genre, img, name, publishingHouse, title } = filmInfo;
 
   return (
-    <div className="single_book_container">
+    <div className="single_film_container">
       <img src={img} />
-      <div className="single_book_description_container">
+      <div className="single_film_description_container">
         <Divider sectionTitle={title} />
         <p>{description}</p>
         {isLoggedIn && (
           <>
             <button
-              className="single_book_reservation_button"
+              className="single_film_reservation_button"
               onClick={handleClick}
             >
               Zarezerwuj
             </button>
             {isSubmitted && (
-              <p className="book_reservation_submitted_info">
-                Książka została zarezerwowana
+              <p className="film_reservation_submitted_info">
+                Film została zarezerwowana
               </p>
             )}
             {error && (
-              <p className="book_reservation_error_info">
-                Ta książka nie jest obecnie dostępna
+              <p className="film_reservation_error_info">
+                Tan film nie jest obecnie dostępna
               </p>
             )}
           </>
         )}
       </div>
-      <div className="single_book_description_container">
+      <div className="single_film_description_container">
         <h2>Kategoria:{genre}</h2>
         <h2>Autor:{name}</h2>
         <h2>Wydawinctwo:{publishingHouse}</h2>
@@ -76,4 +76,4 @@ function SingleBookPage() {
   );
 }
 
-export default SingleBookPage;
+export default SingleFilmPage;

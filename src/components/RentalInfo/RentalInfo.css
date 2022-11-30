@@ -1,17 +1,17 @@
-.library_info_container {
+.rental_info_container {
   position: sticky;
   top: 200px;
   margin-top: 50px;
   margin-left: 40px;
   width: 400px;
   height: 500px;
-  background-color: #ebc479;
+  background-color: #f5b114;
   border-radius: 15px;
   box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem,
     rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
 }
 
-.library_info_container > h3 {
+.rental_info_container > h3 {
   position: absolute;
   margin-top: 40px;
   margin-left: 40px;
@@ -20,14 +20,14 @@
   font-size: 1.5em;
 }
 
-.library_info_container > p {
+.rental_info_container > p {
   position: absolute;
   margin-top: 120px;
   margin-left: 40px;
   margin-right: 40px;
 }
 
-.library_info_divider {
+.rental_info_divider {
   margin-left: 25px;
   position: absolute;
   margin-top: 85px;

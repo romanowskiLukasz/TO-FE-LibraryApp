@@ -4,18 +4,18 @@ import "./ContactInfo.css";
 function ContactInfo() {
   return (
     <div className="contact_info_container">
-      <h2>Biblioteka PK</h2>
+      <h2>Film Rental</h2>
       <p>
         pl. Jana Nowaka-Jeziorańskiego 3 <br /> 31-154 Kraków
         <br /> sekretariat tel. 12 61 89 100 (czynny w godz. 8.00–15.30)
-        <br /> e-mail: <href>sekretariat@biblioteka.pk.pl</href>
+        <br /> e-mail: <href>sekretariat@filmrental.pk.pl</href>
       </p>
       <h3>p.o. Dyrektor</h3>
       <p>
         Mariusz Pudzianowski <br />
         tel. 12 61 89 100
         <br />
-        e-mail: Mariusz.Pudzianowski@biblioteka.pk.pl
+        e-mail: Mariusz.Pudzianowski@filmrental.pk.pl
         <br />
       </p>
       <h3>Zastępca Dyrektora ds. merytorycznych</h3>
@@ -24,7 +24,7 @@ function ContactInfo() {
         <br />
         tel. 12 61 89 100
         <br />
-        e-mail: adam.małysz@biblioteka.pk.pl
+        e-mail: adam.małysz@filmrental.pk.pl
         <br />
       </p>
       <h3>Zastępca Dyrektora ds. administracyjnych i organizacyjnych</h3>
@@ -33,7 +33,7 @@ function ContactInfo() {
         <br />
         tel. 12 61 89 100
         <br />
-        e-mail: robert.kubica@biblioteka.pk.pl
+        e-mail: robert.kubica@filmrental.pk.pl
         <br />
       </p>
     </div>

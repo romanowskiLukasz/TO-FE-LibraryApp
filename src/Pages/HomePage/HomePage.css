@@ -5,7 +5,7 @@
   display: flex;
 }
 
-.home_page_books_container {
+.home_page_films_container {
   width: 60%;
   margin-left: 40px;
 }
@@ -14,7 +14,7 @@
   .home_page_info_container {
     display: none;
   }
-  .home_page_books_container {
+  .home_page_films_container {
     width: 100%;
     margin-left: 40px;
   }

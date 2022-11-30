@@ -1,4 +1,4 @@
-.catalog_book_card_container {
+.catalog_film_card_container {
   display: flex;
   margin-top: 30px;
   width: 75%;
@@ -8,7 +8,7 @@
   border-radius: 10px;
 }
 
-.catalog_book_card_container:hover {
+.catalog_film_card_container:hover {
   box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em,
     rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
   transform: translateY(-3px) scale(1.05);
@@ -22,12 +22,12 @@
   border-radius: 10px;
 }
 
-.catalog_book_card_content {
+.catalog_film_card_content {
   width: 100%;
   margin-left: 30px;
 }
 
-.catalog_book_card_content > p {
+.catalog_film_card_content > p {
   padding: 5px;
 }
 
@@ -35,5 +35,5 @@
   font-family: "Nunito", sans-serif;
   font-weight: 600;
   text-decoration: none;
-  color: #483434;
+  color: #363537;
 }

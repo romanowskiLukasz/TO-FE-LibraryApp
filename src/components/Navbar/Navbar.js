@@ -4,7 +4,7 @@ import Button from "../Buttons/Button";
 import { useStoreState } from "easy-peasy";
 import "./Navbar.css";
 import { CgProfile } from "react-icons/cg";
-import { GiBlackBook } from "react-icons/gi";
+import { GiBlackfilm } from "react-icons/gi";
 
 const Navbar = () => {
   const isLoggedIn = useStoreState((state) => state.isLoggedIn);
@@ -42,7 +42,7 @@ const Navbar = () => {
             style={{ fontFamily: "'Galada', cursive" }}
             onClick={closeMobileMenu}
           >
-            PK Lib <GiBlackBook size={45} style={{ marginLeft: "5px" }} />
+            FilmRental <img src='https://cdn-icons-png.flaticon.com/512/3574/3574820.png'   style={{ marginLeft: "5px", maxWidth:'50px' }} />
           </Link>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
@@ -75,7 +75,7 @@ const Navbar = () => {
                 </li>
                 <li className="nav-item">
                   <Link
-                    to="/borrowedBooks"
+                    to="/borrowedfilms"
                     className="nav-links"
                     onClick={closeMobileMenu}
                   >
@@ -86,7 +86,7 @@ const Navbar = () => {
             )}
 
             <li className="nav-item">
-              <Link to="/books" className="nav-links" onClick={closeMobileMenu}>
+              <Link to="/films" className="nav-links" onClick={closeMobileMenu}>
                 Katalog
               </Link>
             </li>

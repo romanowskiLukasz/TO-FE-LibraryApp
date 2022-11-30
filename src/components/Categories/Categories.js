@@ -1,7 +1,7 @@
 import React from "react";
 import { useRef } from "react";
 
-function Categories({ categories, filterBookCategories }) {
+function Categories({ categories, filterfilmCategories }) {
   const reference = useRef(null);
   return (
     <>
@@ -11,7 +11,7 @@ function Categories({ categories, filterBookCategories }) {
         name="myBrowser"
         placeholder="Wybierz kategorie"
         ref={reference}
-        onChange={() => filterBookCategories(reference.current.value)}
+        onChange={() => filterfilmCategories(reference.current.value)}
       />
       <datalist id="browsers">
         {categories.map((genre, key) => {
